@@ -31,6 +31,7 @@ const FormField = ({
           onChangeText={handleChange}
           keyboardType={keyboardType}
           placeholder={placeholder}
+          maxLength={title === "Phone Number" ? 10 : 100}
           placeholderTextColor="#7b7b8b"
           autoComplete={
             title === "Phone Number" ? "tel" : String(title).toLowerCase()
