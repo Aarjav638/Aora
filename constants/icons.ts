@@ -1,3 +1,4 @@
+
 import bookmark from "../assets/icons/bookmark.png";
 import home from "../assets/icons/home.png";
 import plus from "../assets/icons/plus.png";
@@ -12,7 +13,23 @@ import eyeHide from "../assets/icons/eye-hide.png";
 import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
 
-export default {
+type Icons = {
+  play: string;
+  bookmark: string;
+  home: string;
+  plus: string;
+  profile: string;
+  leftArrow: string;
+  menu: string;
+  search: string;
+  upload: string;
+  rightArrow: string;
+  logout: string;
+  eyeHide: string;
+  eye: string;
+};
+
+const icons: Icons = {
   play,
   bookmark,
   home,
@@ -27,3 +44,5 @@ export default {
   eyeHide,
   eye,
 };
+
+export default icons;

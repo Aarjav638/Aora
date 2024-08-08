@@ -5,13 +5,19 @@ import images from "../../constants/images";
 import FormField from "../../components/FormField";
 import { Link, router } from "expo-router";
 import CustomButton from "../../components/CustomButton";
-const SignIn = () => {
-  const [form, setForm] = useState({
+
+interface FormState {
+  email: string;
+  password: string;
+}
+
+const SignIn: React.FC = () => {
+  const [form, setForm] = useState<FormState>({
     email: "",
     password: "",
   });
 
-  const validateForm = () => {
+  const validateForm = (): boolean => {
     if (!form.email) {
       Alert.alert("Error", "Please enter your email");
       return false;
@@ -22,7 +28,9 @@ const SignIn = () => {
     }
     return true;
   };
-  const [isloading, setIsLoading] = useState(false);
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const handleSubmit = () => {
     try {
       if (!validateForm()) return;
@@ -41,6 +49,7 @@ const SignIn = () => {
       setIsLoading(false);
     }
   };
+
   return (
     <SafeAreaView className="flex-1 bg-primary h-full">
       <ScrollView>
@@ -50,7 +59,7 @@ const SignIn = () => {
             resizeMode="contain"
             className="w-[115px] h-[35px]"
           />
-          <Text className="text-3xl text-white font-pbold  mt-6">
+          <Text className="text-3xl text-white font-pbold mt-6">
             Welcome Back!
           </Text>
           <Text className="text-sm font-psemibold text-secondary-100 mt-3">
@@ -58,39 +67,39 @@ const SignIn = () => {
           </Text>
           <FormField
             title="Email"
-            value={form.email.toLocaleLowerCase()}
-            placeholder={"Enter your email"}
+            value={form.email.toLowerCase()}
+            placeholder="Enter your email"
             handleChange={(e) => {
               setForm({ ...form, email: e });
             }}
-            keyboardType={"email-address"}
+            keyboardType="email-address"
             textInputStyles="mt-7"
           />
           <FormField
             title="Password"
             value={form.password}
-            keyboardType={"password"}
-            placeholder={"Enter your password"}
+            keyboardType="default"
+            placeholder="Enter your password"
             secureTextEntry={true}
             handleChange={(e) => {
               setForm({ ...form, password: e });
             }}
-            textInputStyles={"mt-4"}
+            textInputStyles="mt-4"
           />
           <CustomButton
-            title={"Login"}
-            containerStyles={"mt-8"}
+            title="Login"
+            containerStyles="mt-8"
             onPress={handleSubmit}
-            textStyles={"font-psemibold "}
-            isLoading={isloading}
+            textStyles="font-psemibold"
+            isLoading={isLoading}
           />
-          <View className="flex-row  mt-5 justify-center">
+          <View className="flex-row mt-5 justify-center">
             <Text className="text-sm font-psemibold text-gray-100">
               Don't have an account?{" "}
             </Text>
             <Link
               href="/sign-up"
-              className="text-sm font-psemibold text-secondary-200 "
+              className="text-sm font-psemibold text-secondary-200"
             >
               Sign Up
             </Link>

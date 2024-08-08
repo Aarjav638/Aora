@@ -2,10 +2,12 @@ import { ScrollView, Text, View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import images from "../constants/images";
 import { StatusBar } from "expo-status-bar";
-import { Redirect, router } from "expo-router";
+import { router } from "expo-router"; 
 
 import CustomButton from "../components/CustomButton";
-const Index = () => {
+import React from "react";
+
+const Index: React.FC = () => {
   return (
     <SafeAreaView className="flex-1 bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
@@ -22,9 +24,9 @@ const Index = () => {
             resizeMode="contain"
           />
 
-          <View className="relative mt-5 ">
-            <Text className="text-3xl text-white font-bold text-center ">
-              Discover Endess Possiblities with
+          <View className="relative mt-5">
+            <Text className="text-3xl text-white font-bold text-center">
+              Discover Endless Possibilities with
               <Text className="text-secondary-200"> Aora </Text>
             </Text>
             <Image
@@ -33,8 +35,8 @@ const Index = () => {
               resizeMode="contain"
             />
           </View>
-          <Text className="text-sm font-pregular text-gray-100 mt-7 text-center ">
-            Where Creativity meet innovation: embark on a journey of limitless
+          <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
+            Where Creativity meets innovation: embark on a journey of limitless
             exploration with Aora
           </Text>
           <CustomButton
@@ -50,4 +52,5 @@ const Index = () => {
     </SafeAreaView>
   );
 };
+
 export default Index;

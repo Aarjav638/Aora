@@ -2,7 +2,7 @@ import {Stack,SplashScreen} from "expo-router";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import React from "react";
-const RootLayout=()=> {
+const RootLayout:React.FC=()=> {
 SplashScreen.preventAutoHideAsync();
 
   const [fontsLoaded,error] = useFonts({

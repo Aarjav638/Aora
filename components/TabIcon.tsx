@@ -1,9 +1,14 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ImageSourcePropType } from "react-native";
 import React from "react";
 
-const TabIcon = ({ icon, color, name, focused }) => {
-  console.log(icon);
+interface TabIconProps {
+  icon: ImageSourcePropType;
+  color: string;
+  name: string;
+  focused: boolean;
+}
 
+const TabIcon: React.FC<TabIconProps> = ({ icon, color, name, focused }) => {
   return (
     <View className="flex items-center justify-center gap-2">
       <Image
@@ -21,4 +26,5 @@ const TabIcon = ({ icon, color, name, focused }) => {
     </View>
   );
 };
+
 export default TabIcon;

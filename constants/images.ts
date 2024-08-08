@@ -1,3 +1,4 @@
+
 import profile from "../assets/images/profile.png";
 import thumbnail from "../assets/images/thumbnail.png";
 import cards from "../assets/images/cards.png";
@@ -6,4 +7,24 @@ import logo from "../assets/images/logo.png";
 import logoSmall from "../assets/images/logo-small.png";
 import empty from "../assets/images/empty.png";
 
-export default { profile, thumbnail, cards, path, logo, logoSmall, empty };
+type Images = {
+  profile: string;
+  thumbnail: string;
+  cards: string;
+  path: string;
+  logo: string;
+  logoSmall: string;
+  empty: string;
+};
+
+const images: Images = {
+  profile,
+  thumbnail,
+  cards,
+  path,
+  logo,
+  logoSmall,
+  empty,
+};
+
+export default images;

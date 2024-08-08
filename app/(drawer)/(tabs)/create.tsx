@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const Home = () => {
+const Create: React.FC = () => {
   return (
     <View className="flex-1 justify-center items-center">
-      <Text>Home</Text>
+      <Text>Create</Text>
     </View>
   );
 };
 
-export default Home;
+export default Create;

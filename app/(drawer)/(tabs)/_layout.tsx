@@ -1,8 +1,12 @@
 import React from "react";
-import { Tabs, Redirect } from "expo-router";
-import icons from "../../constants/icons";
-import TabIcon from "../../components/tabicon";
-const TabLayout = () => {
+import { Tabs } from "expo-router";
+import icons from "../../../constants/icons";
+import TabIcon from "../../../components/TabIcon";
+import { View, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import images from "../../../constants/images";
+
+const TabLayout: React.FC = () => {
   return (
     <>
       <Tabs

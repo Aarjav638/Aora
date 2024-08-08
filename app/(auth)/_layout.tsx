@@ -3,7 +3,7 @@ import React from 'react'
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 
-const AuthLayout = () => {
+const AuthLayout:React.FC = () => {
   return (
     <>
     <Stack screenOptions={{

@@ -4,30 +4,42 @@ import {
   TextInput,
   Image,
   TouchableWithoutFeedback,
+  KeyboardTypeOptions,
 } from "react-native";
 import React, { useState } from "react";
 import icons from "../constants/icons";
-const FormField = ({
+
+interface FormFieldProps {
+  title: string;
+  value: string;
+  placeholder: string;
+  handleChange: (text: string) => void;
+  textInputStyles?: string;
+  keyboardType?: KeyboardTypeOptions;
+}
+
+const FormField: React.FC<FormFieldProps> = ({
   title,
   value,
   placeholder,
   handleChange,
   textInputStyles,
-  keyboardType,
+  keyboardType = "default",
 }) => {
-  const [showpassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(true);
+
   return (
     <View className="space-y-2">
       <Text className={`text-base text-white font-pmedium ${textInputStyles}`}>
         {title}
       </Text>
       <View
-        className={`flex-row items-center bg-black-100 border-black-200 focus:border-secondary border-2 h-14 rounded-2xl px-4 `}
+        className={`flex-row items-center bg-black-100 border-black-200 focus:border-secondary border-2 h-14 rounded-2xl px-4`}
       >
         <TextInput
-          className=" text-white text-base font-psemibold w-[90%]"
+          className="text-white text-base font-psemibold w-[90%]"
           value={value}
-          secureTextEntry={title === "Password" && showpassword ? true : false}
+          secureTextEntry={title === "Password" && showPassword}
           onChangeText={handleChange}
           keyboardType={keyboardType}
           placeholder={placeholder}
@@ -40,14 +52,14 @@ const FormField = ({
 
         {title === "Password" && (
           <TouchableWithoutFeedback
-            onPress={() => setShowPassword(!showpassword)}
+            onPress={() => setShowPassword(!showPassword)}
           >
             <Image
               className="absolute right-4 h-6 w-6"
               resizeMode="contain"
-              tintColor={showpassword ? "#7b7b8b" : "#FF9C01"}
-              source={showpassword ? icons.eye : icons.eyeHide}
-            ></Image>
+              tintColor={showPassword ? "#7b7b8b" : "#FF9C01"}
+              source={showPassword ? icons.eye : icons.eyeHide}
+            />
           </TouchableWithoutFeedback>
         )}
       </View>
