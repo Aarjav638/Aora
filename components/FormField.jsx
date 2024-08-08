@@ -1,10 +1,52 @@
-import { View, Text } from "react-native";
-import React from "react";
-
-const FormField = () => {
+import {
+  View,
+  Text,
+  TextInput,
+  Image,
+  TouchableWithoutFeedback,
+} from "react-native";
+import React, { useState } from "react";
+import icons from "../constants/icons";
+const FormField = ({
+  title,
+  value,
+  placeholder,
+  handleChange,
+  textInputStyles,
+  keyboardType,
+}) => {
+  const [showpassword, setShowPassword] = useState(false);
   return (
     <View className="space-y-2">
-      <Text className="text-base text-gray-100 font-pmedium ">FormField</Text>
+      <Text className={`text-base text-white font-pmedium ${textInputStyles}`}>
+        {title}
+      </Text>
+      <View
+        className={`flex-row items-center bg-black-100 border-black-200 focus:border-secondary border-2 h-14 rounded-2xl px-4 `}
+      >
+        <TextInput
+          className=" text-white text-base font-psemibold w-[90%]"
+          value={value}
+          secureTextEntry={(title === "Password") & showpassword ? false : true}
+          onChangeText={handleChange}
+          keyboardType={keyboardType}
+          placeholder={placeholder}
+          placeholderTextColor="#7b7b8b"
+          autoComplete={String(title).toLowerCase()}
+        />
+
+        {title === "Password" && (
+          <TouchableWithoutFeedback
+            onPress={() => setShowPassword(!showpassword)}
+          >
+            <Image
+              className="absolute right-4 h-6 w-6"
+              resizeMode="contain"
+              source={!showpassword ? icons.eye : icons.eyeHide}
+            ></Image>
+          </TouchableWithoutFeedback>
+        )}
+      </View>
     </View>
   );
 };

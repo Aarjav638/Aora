@@ -1,4 +1,4 @@
-# Welcome to your Expo app 👋
+# Welcome to Aora 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
@@ -15,6 +15,14 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    ```bash
     npx expo start
    ```
+
+   or
+
+   ```bash
+   npx expo start -c
+   ```
+
+   for starting the server by restting bundler cache
 
 In the output, you'll find options to open the app in a
 
