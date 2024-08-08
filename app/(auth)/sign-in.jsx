@@ -1,9 +1,9 @@
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, Alert } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import images from "../../constants/images";
 import FormField from "../../components/FormField";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import CustomButton from "../../components/CustomButton";
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -11,11 +11,30 @@ const SignIn = () => {
     password: "",
   });
 
+  const validateForm = () => {
+    if (!form.email) {
+      Alert.alert("Error", "Please enter your email");
+      return false;
+    }
+    if (!form.password) {
+      Alert.alert("Error", "Please enter your password");
+      return false;
+    }
+    return true;
+  };
   const [isloading, setIsLoading] = useState(false);
   const handleSubmit = () => {
     try {
+      if (!validateForm()) return;
+
       setIsLoading(true);
       console.log(form);
+      Alert.alert("Success", "You have successfully logged in", [
+        {
+          text: "OK",
+          onPress: () => router.push("/home"),
+        },
+      ]);
     } catch (error) {
       console.log(error);
     } finally {
@@ -39,7 +58,7 @@ const SignIn = () => {
           </Text>
           <FormField
             title="Email"
-            value={form.email}
+            value={form.email.toLocaleLowerCase()}
             placeholder={"Enter your email"}
             handleChange={(e) => {
               setForm({ ...form, email: e });
