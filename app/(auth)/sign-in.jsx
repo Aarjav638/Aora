@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import images from "../../constants/images";
 import FormField from "../../components/FormField";
-import { Link, router } from "expo-router";
+import { Link } from "expo-router";
 import CustomButton from "../../components/CustomButton";
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -66,12 +66,12 @@ const SignIn = () => {
             isLoading={isloading}
           />
           <View className="flex-row  mt-5 justify-center">
-            <Text className="text-sm font-psemibold text-gray-100 mt-4">
+            <Text className="text-sm font-psemibold text-gray-100">
               Don't have an account?{" "}
             </Text>
             <Link
               href="/sign-up"
-              className="text-sm font-psemibold text-secondary-200 mt-4"
+              className="text-sm font-psemibold text-secondary-200 "
             >
               Sign Up
             </Link>

@@ -15,7 +15,7 @@ const FormField = ({
   textInputStyles,
   keyboardType,
 }) => {
-  const [showpassword, setShowPassword] = useState(false);
+  const [showpassword, setShowPassword] = useState(true);
   return (
     <View className="space-y-2">
       <Text className={`text-base text-white font-pmedium ${textInputStyles}`}>
@@ -27,12 +27,14 @@ const FormField = ({
         <TextInput
           className=" text-white text-base font-psemibold w-[90%]"
           value={value}
-          secureTextEntry={(title === "Password") & showpassword ? false : true}
+          secureTextEntry={title === "Password" && showpassword ? true : false}
           onChangeText={handleChange}
           keyboardType={keyboardType}
           placeholder={placeholder}
           placeholderTextColor="#7b7b8b"
-          autoComplete={String(title).toLowerCase()}
+          autoComplete={
+            title === "Phone Number" ? "tel" : String(title).toLowerCase()
+          }
         />
 
         {title === "Password" && (
@@ -42,7 +44,8 @@ const FormField = ({
             <Image
               className="absolute right-4 h-6 w-6"
               resizeMode="contain"
-              source={!showpassword ? icons.eye : icons.eyeHide}
+              tintColor={showpassword ? "#7b7b8b" : "#FF9C01"}
+              source={showpassword ? icons.eye : icons.eyeHide}
             ></Image>
           </TouchableWithoutFeedback>
         )}
