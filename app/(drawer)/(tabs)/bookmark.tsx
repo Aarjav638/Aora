@@ -20,9 +20,13 @@ const Bookmark: React.FC = () => {
             }}
           />
         }
-        contentContainerStyle={{ flexGrow: 1 }}
+        contentContainerStyle={{ flexGrow: 1,
+          justifyContent: "center",
+          alignItems: "center",rowGap:8 }}
       >
-        <Text>Bookmark</Text>
+        <Text className="text-xl">Bookmark</Text>
+
+        <Text className="text-2xl bg-teal-100"> Pull Down To refresh</Text>
       </ScrollView>
     </View>
   );
@@ -31,8 +35,6 @@ const Bookmark: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
 
