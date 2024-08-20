@@ -1,30 +1,14 @@
 
-import profile from "../assets/images/profile.png";
-import thumbnail from "../assets/images/thumbnail.png";
-import cards from "../assets/images/cards.png";
-import path from "../assets/images/path.png";
-import logo from "../assets/images/logo.png";
-import logoSmall from "../assets/images/logo-small.png";
-import empty from "../assets/images/empty.png";
+import { ImageSourcePropType } from "react-native";
 
-type Images = {
-  profile: string;
-  thumbnail: string;
-  cards: string;
-  path: string;
-  logo: string;
-  logoSmall: string;
-  empty: string;
-};
-
-const images: Images = {
-  profile,
-  thumbnail,
-  cards,
-  path,
-  logo,
-  logoSmall,
-  empty,
+const images:Record<string,ImageSourcePropType> = {
+  profile:require("../assets/images/profile.png"),
+  thumbnail:require("../assets/images/thumbnail.png"),
+  cards:require("../assets/images/cards.png"),
+  path:require("../assets/images/path.png"),
+  logo:require("../assets/images/logo.png"),
+  logoSmall:require("../assets/images/logo-small.png"),
+  empty:require("../assets/images/empty.png"),
 };
 
 export default images;

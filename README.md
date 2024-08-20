@@ -13,16 +13,16 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 2. Start the app
 
    ```bash
-    npx expo start
+    npx expo start --tunnel
    ```
 
    or
 
-   ```bash
-   npx expo start -c
-   ```
+- - for starting the server by restting bundler cache
 
-   for starting the server by restting bundler cache
+```bash
+npx expo start --tunnel -c
+```
 
 In the output, you'll find options to open the app in a
 
@@ -45,7 +45,7 @@ This command will move the starter code to the **app-example** directory and cre
 
 ## Get The app Running on your Phone
 
-* Install ExpoGo from PlayStore or app store
-* Scan the QR code above with Expo Go (Android) or the Camera app (iOS)
+- Install ExpoGo from PlayStore or app store
+- Scan the QR code above with Expo Go (Android) or the Camera app (iOS)
 
 ## Enjoy your Development
